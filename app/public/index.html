@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+  <title>Home Page</title>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  
+  <script src="https://unpkg.com/vue@next"></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script> -->
+
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+  <div class="ui fixed inverted menu">
+    <div class="ui container">
+      <a href="index.html" class="header item">
+        Home
+      </a>
+      <a href="table.html" class="item">Table</a>
+      <a href="stats.html" class="item">Statistics</a>
+    </div>
+  </div>
+
+  <!-- <div id="offerApp">
+    <p>{{person}}</p>
+    <h1>{{person.name.first}}</h1>
+    <p>{{prettyBirthday}}</p>
+  </div> -->
+
+  
+
+    <div class="ui main container"> 
+      <h1 class="ui center aligned icon header" id="sample_heading">
+        <i class="user icon"></i>
+        User Information
+      </h1>
+    </div>
+
+    <div  id="offerApp" class="ui segment">
+      <div class="ui items">
+        <div class="item">
+          <a v-bind:href="person.picture.large" target="_blank" class="ui medium image" cite="person.picture.large">
+            <img v-bind:src="person.picture.large">
+            <p><cite>Potrait photo; </cite>photo by Random User</p>
+          </a>
+          <div class="content" >
+            <a class="header">{{person.name.first}}</a>
+            <div class="description">
+              <p>{{person.name.first}} is a <a>library scientist</a> living in  {{person.location.city}} City.</p>
+              <div class="ui list">
+                <div class="item">
+                  <i class="marker icon"></i>
+                  <div class="content">
+                    {{person.location.city}},{{person.location.state}},{{person.location.country}}
+                  </div>
+              </div>
+              <div class="item">
+                <i class="birthday cake icon"></i>
+                <div class="content">
+                  {{prettyBirthday}}
+                </div>
+            </div>
+            <div class="item">
+              <i class="calendar icon"></i>
+              <div class="content">
+                {{person.dob.age}}
+              </div>
+          </div>
+          <div class="item">
+            <i class="mail icon"></i>
+            <div class="content">
+              <a v-bind:href="'mailto:'+person.email">{{person.email}}</a>       
+            </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <form v-on:submit.prevent="fetchUserData">
+            <button class="positive ui button">Refresh</button>
+          </form>     
+          </div>
+        </div>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+      <div class="ui items">
+        <div class="item">
+          <a href="img/matthew.png" class="ui medium image" target="_blank" cite="https://semantic-ui.com/views/card.html#">
+            <img src="img/matthew.png">
+            <p><cite>Potrait photo; </cite>photo by Semantic UI</p>
+          </a>
+          <div class="content">
+            <a class="header">Matthew Giamperio</a>
+            <div class="description">
+              <p>Matthew Giamperio is a <a>Professor</a> living in Seattle.</p>
+              <div class="ui list">
+                <div class="item">
+                  <i class="marker icon"></i>
+                  <div class="content">
+                    Seattle, WA, U.S.A
+                  </div>
+              </div>
+              <div class="item">
+                <i class="birthday cake icon"></i>
+                <div class="content">
+                  07/17/1997
+                </div>
+            </div>
+            <div class="item">
+              <i class="calendar icon"></i>
+              <div class="content">
+                24
+              </div>
+          </div>
+          <div class="item">
+            <i class="mail icon"></i>
+            <div class="content">
+              <a href="mailto:matt@iu.edu">matt@iu.edu</a>       
+            </div>
+        </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+
+    <div class="ui inverted vertical footer segment">
+      <div class="ui center aligned container">
+        <div class="ui stackable inverted divided grid">
+          <div class="three wide column">
+            <h4 class="ui inverted header">Group 1</h4>
+            <div class="ui inverted link list">
+              <a href="#" class="item">Link One</a>
+              <a href="#" class="item">Link Two</a>
+              <a href="#" class="item">Link Three</a>
+              <a href="#" class="item">Link Four</a>
+            </div>
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">Group 2</h4>
+            <div class="ui inverted link list">
+              <a href="#" class="item">Link One</a>
+              <a href="#" class="item">Link Two</a>
+              <a href="#" class="item">Link Three</a>
+              <a href="#" class="item">Link Four</a>
+            </div>
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">Group 3</h4>
+            <div class="ui inverted link list">
+              <a href="#" class="item">Link One</a>
+              <a href="#" class="item">Link Two</a>
+              <a href="#" class="item">Link Three</a>
+              <a href="#" class="item">Link Four</a>
+            </div>
+          </div>
+          <div class="seven wide column">
+            <h4 class="ui inverted header">Footer Header</h4>
+            <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+          </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <div class="ui horizontal inverted small divided link list">
+          <a class="item" href="#">Site Map</a>
+          <a class="item" href="#">Contact Us</a>
+          <a class="item" href="#">Terms and Conditions</a>
+          <a class="item" href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <script src="js/index.js"></script>
+
+<!-- The Navbar code was taken from https://semantic-ui.com/examples/fixed.html -->
+<!-- The Body code was taken from https://semantic-ui.com/views/card.html -->
+<!-- The Icons were taken from https://semantic-ui.com/elements/icon.html -->
+<!-- The Card format was taken from https://semantic-ui.com/elements/list.html -->
+<!-- The Images were taken from https://semantic-ui.com/views/card.html -->
+<!-- The Footer code was taken from https://semantic-ui.com/examples/fixed.html-->
+
+</body>
+</html>
